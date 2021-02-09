@@ -12,7 +12,6 @@
     max-height: 180px;
     margin-right: 10px;
     object-fit: contain;
-
     transition: transform 450ms;
 }
 .row__posterLarge {
