@@ -17,19 +17,15 @@ function Row({ title, isLarge, fetchURL }) {
         <div className={styles.row}>
             <h2>{title}</h2>
             <div className={styles.row__posters}>
-                {movies?.map((i) => (
-                    <MovieCard
-                        img={isLarge ? i.poster_path : i.backdrop_path}
-                        style={
-                            isLarge
-                                ? styles.row__posterLarge +
-                                  " " +
-                                  styles.row__poster
-                                : styles.row__poster
-                        }
-                        title={i?.original_title || i?.original_name}
-                    />
-                ))}
+                {movies?.map((i) =>
+                    i.poster_path && i.backdrop_path ? (
+                        <MovieCard
+                            img={isLarge ? i.poster_path : i.backdrop_path}
+                            style={isLarge ? styles.row__posterLarge + " " + styles.row__poster : styles.row__poster}
+                            title={i?.original_title || i?.original_name}
+                        />
+                    ) : null
+                )}
             </div>
         </div>
     );
