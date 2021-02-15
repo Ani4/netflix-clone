@@ -1,0 +1,96 @@
+.loginScreen {
+    position: relative;
+    height: 100%;
+    background: url("../../assets/images/loginBack.jpg")
+        /* url("https://assets.nflxext.com/ffe/siteui/vlv3/8ef88e03-6f89-4c75-ae51-f8da7d252358/028d050e-d3f4-4e70-8ac3-1269026601b2/IN-en-20210208-popsignuptwoweeks-perspective_alpha_website_large.jpg") */
+        center no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.background {
+    width: 100%;
+    z-index: 1;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.logo {
+    position: fixed;
+    left: 0;
+    width: 200px;
+    object-fit: contain;
+    padding-left: 40px;
+    padding-top: 10px;
+}
+.button {
+    position: fixed;
+    right: 30px;
+    top: 40px;
+    padding-right: 20px;
+    border: 0;
+    background-color: #e50914;
+    color: #eee;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.body {
+    color: white;
+    z-index: 1;
+    position: absolute;
+    margin: auto;
+    top: 30%;
+    text-align: center;
+}
+
+.body > h1 {
+    font-size: 3.125rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    margin: 0 10rem;
+}
+
+.body > h4 {
+    font-size: 1.62rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.body > p {
+    font-size: 1.12rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+.formField {
+    /* background-color: #fff; */
+    padding: auto;
+    display: flex;
+    justify-content: center;
+}
+.input {
+    outline-width: 0;
+    border: 0;
+    min-width: 28.25rem;
+    padding: 16px 20px;
+
+    font-size: 1rem;
+}
+.input:focus > .input::before {
+    content: "Email Address";
+    z-index: 1;
+}
+.getStarted {
+    padding: 16px 20px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.06rem;
+    display: flex;
+    justify-content: baseline;
+}

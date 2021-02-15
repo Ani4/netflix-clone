@@ -6,7 +6,7 @@ import HomeScreen from "./screens/HomeScreen";
 import Login from "./screens/LoginScreen";
 
 function App() {
-    const user = "dgf";
+    const user = null;
     return (
         <div className="app">
             <header className="app-header">
