@@ -12,7 +12,7 @@ function Row({ title, isLarge, fetchURL }) {
     }
     useEffect(() => {
         getMovies();
-    }, []);
+    });
     return (
         <div className={styles.row}>
             <h2>{title}</h2>

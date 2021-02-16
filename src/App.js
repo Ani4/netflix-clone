@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.css";
 import HomeScreen from "./screens/HomeScreen";
 import Login from "./screens/LoginScreen";
+import { auth } from "./utils/secret";
 
 function App() {
-    const user = null;
+    const [user, setUser] = useState(null);
+    useEffect(() => {
+        auth().onAuthStateChanged((userChange) => {
+            if (userChange) setUser(userChange);
+            else console.log(userChange);
+        });
+    }, [user]);
     return (
         <div className="app">
             <header className="app-header">

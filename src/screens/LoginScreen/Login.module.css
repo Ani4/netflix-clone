@@ -1,8 +1,7 @@
 .loginScreen {
     position: relative;
     height: 100%;
-    background: url("../../assets/images/loginBack.jpg")
-        /* url("https://assets.nflxext.com/ffe/siteui/vlv3/8ef88e03-6f89-4c75-ae51-f8da7d252358/028d050e-d3f4-4e70-8ac3-1269026601b2/IN-en-20210208-popsignuptwoweeks-perspective_alpha_website_large.jpg") */
+    background: /* url("../../assets/images/loginBack.jpg") */ url("https://assets.nflxext.com/ffe/siteui/vlv3/8ef88e03-6f89-4c75-ae51-f8da7d252358/028d050e-d3f4-4e70-8ac3-1269026601b2/IN-en-20210208-popsignuptwoweeks-perspective_alpha_website_large.jpg")
         center no-repeat;
     background-size: cover;
     display: flex;
@@ -36,6 +35,9 @@
     font-size: 1.2rem;
     padding: 10px 20px;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .body {
@@ -66,7 +68,6 @@
     font-weight: 500;
 }
 .formField {
-    /* background-color: #fff; */
     padding: auto;
     display: flex;
     justify-content: center;
@@ -92,5 +93,7 @@
     font-weight: 600;
     font-size: 1.06rem;
     display: flex;
-    justify-content: baseline;
+
+    display: flex;
+    align-items: center;
 }
