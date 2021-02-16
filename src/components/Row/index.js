@@ -12,14 +12,16 @@ function Row({ title, isLarge, fetchURL }) {
     }
     useEffect(() => {
         getMovies();
-    });
+        return setMovies(null);
+    }, []);
     return (
         <div className={styles.row}>
             <h2>{title}</h2>
             <div className={styles.row__posters}>
-                {movies?.map((i) =>
+                {movies?.map((i, e) =>
                     i.poster_path && i.backdrop_path ? (
                         <MovieCard
+                            key={e}
                             img={isLarge ? i.poster_path : i.backdrop_path}
                             style={isLarge ? styles.row__posterLarge + " " + styles.row__poster : styles.row__poster}
                             title={i?.original_title || i?.original_name}

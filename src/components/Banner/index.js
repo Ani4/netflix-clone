@@ -12,11 +12,7 @@ function Banner() {
     //     fetch movie data for banner
     async function fetchData() {
         const data = await axios.get(request.fetchNetflixOriginals);
-        setMovies(
-            data.data.results[
-                Math.floor(Math.random() * data.data.results.length - 1)
-            ]
-        );
+        setMovies(data.data.results[Math.floor(Math.random() * data.data.results.length - 1)]);
         return data;
     }
 
@@ -38,9 +34,7 @@ function Banner() {
                     <button className={styles.button}>Play</button>
                     <button className={styles.button}>My List</button>
                 </div>
-                <h1 className={styles.description}>
-                    {dotdotdot(movies?.overview)}
-                </h1>
+                <h1 className={styles.description}>{dotdotdot(movies?.overview)}</h1>
             </div>
             <div className={styles.fade_bottom}></div>
         </div>

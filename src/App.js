@@ -11,7 +11,9 @@ function App() {
     useEffect(() => {
         auth().onAuthStateChanged((userChange) => {
             if (userChange) setUser(userChange);
-            else console.log(userChange);
+            else {
+                setUser(null);
+            }
         });
     }, [user]);
     return (
