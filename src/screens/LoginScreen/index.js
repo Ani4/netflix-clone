@@ -14,17 +14,7 @@ function LoginScreen() {
         <div className={styles.loginScreen}>
             <div className={styles.background}>
                 <img className={styles.logo} src={net_logo} alt="netflix_logo" />
-                {location === "/" ? (
-                    <button
-                        className={styles.button}
-                        onClick={() => {
-                            history.push("/signin");
-                            setLocation("/signin");
-                        }}
-                    >
-                        Sign in
-                    </button>
-                ) : (
+                {location === "/signin" ? (
                     <button
                         className={styles.button}
                         onClick={() => {
@@ -34,6 +24,16 @@ function LoginScreen() {
                     >
                         <FaChevronLeft />
                         Back
+                    </button>
+                ) : (
+                    <button
+                        className={styles.button}
+                        onClick={() => {
+                            history.push("/signin");
+                            setLocation("/signin");
+                        }}
+                    >
+                        Sign in
                     </button>
                 )}
             </div>

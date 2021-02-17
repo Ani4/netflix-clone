@@ -5,22 +5,17 @@ function SignIn() {
     const emailRef = useRef(null);
     const passRef = useRef(null);
     const register = (e) => {
-        console.log(emailRef.current.value, passRef.current.value);
         e.preventDefault();
-        auth()
-            .createUserWithEmailAndPassword(emailRef.current.value, passRef.current.value)
-            .then((authUser) => console.log(authUser))
-            .catch((e) => console.log(e));
+        auth().createUserWithEmailAndPassword(emailRef.current.value, passRef.current.value);
     };
 
     const signin = (e) => {
         e.preventDefault();
-        console.log(emailRef.current.value, passRef.current.value);
-        console.log("SIGN IN >>>");
-        auth()
-            .signInWithEmailAndPassword(emailRef.current.value, passRef.current.value)
-            .then((authUser) => console.log(authUser))
-            .catch((e) => console.log(e));
+        auth().signInWithEmailAndPassword(emailRef.current.value, passRef.current.value);
+    };
+    const demoLogin = (e) => {
+        e.preventDefault();
+        auth().signInWithEmailAndPassword("demo@demo.com", "demodemo");
     };
     return (
         <div className={styles.container}>
@@ -31,6 +26,9 @@ function SignIn() {
                 <button className={styles.button}>Sign In</button>
                 <p>
                     New to Netflix? <span onClick={register}>Sign up now.</span>
+                </p>
+                <p>
+                    Login for <span onClick={demoLogin}> Demo</span> Purpose
                 </p>
             </form>
         </div>

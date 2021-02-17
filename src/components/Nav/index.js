@@ -1,10 +1,11 @@
 import React, { useState, useLayoutEffect } from "react";
 import styles from "./Nav.module.css";
 import net_logo from "../../assets/images/Netflix_Logo_RGB.png";
-import { Link } from "react-router-dom";
 import { auth } from "../../utils/secret";
+import { useHistory } from "react-router-dom";
 
 function Nav() {
+    const history = useHistory();
     const [show, setShow] = useState(false);
 
     const transitionNavBar = () => {
@@ -26,11 +27,7 @@ function Nav() {
                 <img src={net_logo} alt="netflix_logo" className={styles.logo} />
                 {/* avatar logo */}
                 <img
-                    onClick={() =>
-                        auth()
-                            .signOut()
-                            .then((u) => console.log("sign out >>", u))
-                    }
+                    onClick={() => history.push("/profile")}
                     src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
                     alt="avatar_logo"
                     className={styles.avatar}

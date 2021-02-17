@@ -1,34 +1,43 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
+import { login, logout, selectUser } from "./features/userSlice";
 import HomeScreen from "./screens/HomeScreen";
-import Login from "./screens/LoginScreen";
+import LoginScreen from "./screens/LoginScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 import { auth } from "./utils/secret";
 
 function App() {
-    const [user, setUser] = useState(null);
+    const user = useSelector(selectUser);
+    const dispatch = useDispatch();
     useEffect(() => {
-        auth().onAuthStateChanged((userChange) => {
-            if (userChange) setUser(userChange);
-            else {
-                setUser(null);
-            }
-        });
-    }, [user]);
+        const unsubscribe = () =>
+            auth().onAuthStateChanged((userChange) => {
+                if (userChange) {
+                    dispatch(login({ uid: userChange.uid, user_email: userChange.email }));
+                } else {
+                    dispatch(logout());
+                }
+            });
+        unsubscribe();
+        return unsubscribe;
+    }, [dispatch]);
     return (
         <div className="app">
             <header className="app-header">
                 <Router>
                     {!user ? (
-                        <Login />
+                        <LoginScreen />
                     ) : (
                         <Switch>
-                            <Route path="/about"></Route>
-                            <Route path="/user"></Route>
-                            <Route path="/">
+                            <Route path="/profile" exact>
+                                <ProfileScreen />
+                            </Route>
+                            <Route path="/" exact>
                                 <HomeScreen />
                             </Route>
+                            <Redirect to="/" />
                         </Switch>
                     )}
                 </Router>
