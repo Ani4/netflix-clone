@@ -24,7 +24,7 @@ function Nav() {
         <div className={`${styles.nav} ${show && styles.nav__black}`}>
             <div className={styles.content}>
                 {/* netflic logo */}
-                <img src={net_logo} alt="netflix_logo" className={styles.logo} />
+                <img onClick={() => history.push("/")} src={net_logo} alt="netflix_logo" className={styles.logo} />
                 {/* avatar logo */}
                 <img
                     onClick={() => history.push("/profile")}

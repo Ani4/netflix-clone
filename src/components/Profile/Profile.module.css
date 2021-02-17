@@ -51,3 +51,20 @@
 .plan {
     margin-bottom: 10px;
 }
+.choose {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+.chooseBtn {
+    background-color: #e50914;
+    padding: 5px 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 400;
+}
+.chooseBtn:disabled {
+    background-color: #4e4e4e;
+    cursor: not-allowed;
+}

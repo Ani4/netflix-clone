@@ -1,10 +1,15 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import Nav from "../../components/Nav";
+import Nav from "../Nav";
 import { auth } from "../../utils/secret";
 import styles from "./Profile.module.css";
-const ProfileScreen = () => {
-    const handleform = (e) => {
+const Profile = () => {
+    const plans = [
+        { selected: false, button: "Subscribe" },
+        { selected: false, button: "Subscribe" },
+        { selected: true, button: "Current Package" },
+    ];
+    const handleForm = (e) => {
         e.preventDefault();
     };
     const history = useHistory();
@@ -21,17 +26,22 @@ const ProfileScreen = () => {
                         width="70px"
                         height="70px"
                     />
-                    <form on onSubmit={handleform}>
-                        <input type="email" name="email" id="email" value="demo@demo.com" />
+                    <form onSubmit={handleForm}>
+                        <input type="email" name="email" id="email" value="demo@demo.com" disabled />
                         <div className={styles.plan}>
                             <h3>Plan (Current Plan: Premium)</h3>
                             <div height="3px"></div>
                             <hr color="#3e3e3e" />
-                            <div style={{ "margin-top": "10px" }}>
+                            <div style={{ marginTop: "10px" }}>
                                 <p>Renewal Date: 04/04/2022</p>
-                                <div>
-                                    <p>Netflix Premium</p>
-                                </div>
+                                {plans.map((i) => (
+                                    <div className={styles.choose}>
+                                        <p>Netflix Premium</p>
+                                        <button className={styles.chooseBtn} disabled={i.selected}>
+                                            {i.button}
+                                        </button>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                         <button
@@ -51,4 +61,4 @@ const ProfileScreen = () => {
     );
 };
 
-export default ProfileScreen;
+export default Profile;
